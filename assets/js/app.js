@@ -1,6 +1,8 @@
 $(document).ready(function () {
   /*Global Variables & Functions*/
   const displayText = (element, text) => $(element).text(text);
+  let correct = 0;
+  let incorrect = 0;
 
   /*Question & Answer Variables*/
   const questions = [
@@ -95,12 +97,19 @@ $(document).ready(function () {
 
   const choicesMapFunction = function (c, d) {
     displayText('#choice' + (d + 1), currentQuestion().choices[c])
-  }
+  };
 
+  /*Start the Game*/
   $(document).on('click', '#start', function () {
     displayText('.card-header', 'Question # ' + questionNumber)
     displayQuestion('.card-title');
     displayChoices();
     console.log('working');
   });
+
+  /*Check Answer*/
+  $(document).on('click', '#choice1, #choice2, #choice3, #choice4', function () {
+    let selectedAnswer = $(this).text();
+  });
+
 });
