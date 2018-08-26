@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <div class="jumbotron">
+  <div class="jumbotron text-center">
     <h1 class="display-3">Trivia Game</h1>
     <p class="lead">Subtitle Placeholder</p>
     <hr class="my-2">
@@ -26,29 +26,33 @@
     </p>
   </div>
   <div class="row">
-    <div class="card text-center col-md-10 offset-md-1">
+    <div class="card text-center col-md-12">
       <div class="card-header">
         Question # Placeholder
       </div>
-      <div class="card-body">
-        <h4 class="card-title">Question Placeholder</h4>
-        <div class="card-text">
-          Choices Placeholder
-          <ul>
-            <li id="choice1">Choice 1</li>
-            <li id="choice2">Choice 2</li>
-            <li id="choice3">Choice 3</li>
-            <li id="choice4">Choice 4</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card-footer text-muted">
-        <button type="button" id="timer" class="btn btn-primary btn-lg btn-block">TIMER</button>
-      </div>
     </div>
   </div>
-
-
+  <div class="row text-center">
+    <div class="card-body col-md-10 offset-md-1">
+      <h4 class="card-title">Question Placeholder</h4>
+      <div class="card-text">
+        <ul id="choiceList">
+          <li id="choice1">Choice 1</li>
+          <li id="choice2">Choice 2</li>
+          <li id="choice3">Choice 3</li>
+          <li id="choice4">Choice 4</li>
+        </ul>
+        <div id="showResults">
+          <h2 id="result"></h2>
+          <img src="" id="answerImage" />
+        </div>
+      </div>
+    </div>
+    <div class="card-footer text-muted col-md-2 offset-md-5">
+      <button type="button" id="timer" class="btn btn-primary btn-lg btn-block">00:30</button>
+    </div>
+  </div>
+  </div>
 </body>
 
 <script src="assets/js/app.js"></script>
