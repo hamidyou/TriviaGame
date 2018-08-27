@@ -1,3 +1,14 @@
+.jumbotron, .main {
+  border-radius: 0px;
+}
+
 #timer {
   font-size: x-large;
 }
+
+#choiceList li:hover {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+

@@ -4,6 +4,13 @@ $(document).ready(function () {
   const setAttr = (element, attr, value) => $(element).attr(attr, value);
   let correct = 0;
   let incorrect = 0;
+  const percentage = function () {
+    if (questionNumber !== 1) {
+      return (correct / (correct + incorrect)).toLocaleString('en-US', { style: 'percent' })
+    } else {
+      return Number('0').toLocaleString('en-US', { style: 'percent' })
+    }
+  };
   const hide = x => $(x).hide();
   const show = x => $(x).show();
 
@@ -123,19 +130,44 @@ $(document).ready(function () {
     displayText('#choice' + (d + 1), currentChoices[c])
   };
 
+  const displayScores = function () {
+    displayText('#numberCorrect', correct);
+    displayText('#numberIncorrect', incorrect);
+    displayText('#percentage', percentage());
+  }
+
+  /*Initialize & Set Variables*/
   const setVars = function () {
     setQuestionVars(questions[questionIndex()]);
     displayText('.card-header', 'Question # ' + questionNumber)
     displayQuestion('.card-title');
     displayChoices();
+    timer.reset();
     timer.start();
-    console.log(questionNumber);
+    switchButton();
+    displayScores();
+  }
+
+  const reset = function () {
+    correct = 0;
+    incorrect = 0;
+    questionNumber = 1;
+    shuffleArray(questionArray);
+    setVars();
+    console.log('reset');
+  }
+
+  /*change START button to RESET*/
+  const switchButton = function () {
+    setAttr('#start', 'id', 'reset');
+    displayText('#reset', 'RESET');
   }
 
   /*Start the Game*/
   $(document).on('click', '#start', setVars);
+  $(document).on('click', '#reset', reset);
 
-  /*Timeouts*/
+  /*After answer Logic*/
   const showAnswerImage = function () {
     hide('#choiceList, .card-header, .card-title');
     show('#showResults');
@@ -154,6 +186,7 @@ $(document).ready(function () {
     if (x) {
       displayText('#result', 'CORRECT!');
       correct++;
+      console.log(correct);
     } else if (timer.time === 0) {
       displayText('#result', "TIME'S UP!");
       incorrect++;
@@ -161,7 +194,9 @@ $(document).ready(function () {
       displayText('#result', 'INCORRECT!');
       incorrect++;
     }
+    displayText('#showCorrectAnswer', currentCorrect)
     showAnswerImage();
+    displayScores();
     questionNumber++;
     setTimeout(nextQuestion, 4000);
   }
@@ -178,10 +213,10 @@ $(document).ready(function () {
   let currentTime = '';
 
   const timer = {
-    time: 5,
+    time: 30,
     reset: function () {
-      timer.time = 5;
-      displayText('#timer', '00:05')
+      timer.time = 30;
+      displayText('#timer', '00:30')
       timer.stop();
     },
     start: function () {

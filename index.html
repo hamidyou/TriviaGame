@@ -16,42 +16,56 @@
 </head>
 
 <body>
-  <div class="jumbotron text-center">
-    <h1 class="display-3">Trivia Game</h1>
-    <p class="lead">Subtitle Placeholder</p>
+  <div class="jumbotron text-center py-3 mb-0">
+    <h1 class="display-3">Random Trivia</h1>
     <hr class="my-2">
-    <p>Directions Placeholder</p>
-    <p class="lead">
-      <button class="btn btn-primary btn-lg" role="button" id="start">Start Game</button>
-    </p>
-  </div>
-  <div class="row">
-    <div class="card text-center col-md-12">
-      <div class="card-header">
-        Question # Placeholder
+    <div class="buttons">
+      <button class="btn btn-primary btn-lg my-3" role="button" id="start">Start Game</button>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h2>CORRECT</h2>
+        <p id="numberCorrect"></p>
+      </div>
+      <div class="col-md-4">
+        <h2>PERCENTAGE</h2>
+        <p id="percentage"></p>
+      </div>
+      <div class="col-md-4">
+        <h2>INCORRECT</h2>
+        <p id="numberIncorrect"></p>
       </div>
     </div>
   </div>
-  <div class="row text-center">
-    <div class="card-body col-md-10 offset-md-1">
-      <h4 class="card-title">Question Placeholder</h4>
-      <div class="card-text">
-        <ul id="choiceList">
-          <li id="choice1">Choice 1</li>
-          <li id="choice2">Choice 2</li>
-          <li id="choice3">Choice 3</li>
-          <li id="choice4">Choice 4</li>
-        </ul>
-        <div id="showResults">
-          <h2 id="result"></h2>
-          <img src="" id="answerImage" />
+  <div class="main">
+    <div class="row">
+      <div class="card text-center col-md-12">
+        <div class="card-header">
+          Question # Placeholder
         </div>
       </div>
     </div>
-    <div class="card-footer text-muted col-md-2 offset-md-5">
-      <button type="button" id="timer" class="btn btn-primary btn-lg btn-block">00:30</button>
+    <div class="row text-center">
+      <div class="card-body col-md-10 offset-md-1">
+        <h4 class="card-title">Question Placeholder</h4>
+        <div class="card-text row">
+          <ul class="col-md-6 offset-md-3" id="choiceList">
+            <li id="choice1">Choice 1</li>
+            <li id="choice2">Choice 2</li>
+            <li id="choice3">Choice 3</li>
+            <li id="choice4">Choice 4</li>
+          </ul>
+          <div class="col-md-6 offset-md-3" id="showResults">
+            <h2 id="result"></h2>
+            <p id="showCorrectAnswer"></p>
+            <img src="" id="answerImage" />
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-muted col-md-2 offset-md-5">
+        <button type="button" id="timer" class="btn btn-primary btn-lg btn-block">00:30</button>
+      </div>
     </div>
-  </div>
   </div>
 </body>
 
