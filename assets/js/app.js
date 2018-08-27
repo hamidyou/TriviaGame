@@ -51,25 +51,25 @@ $(document).ready(function () {
       question: "What is the hottest pepper based on Scoville Heat Units?",
       choices: ["Carolina Reaper", "Ghost Pepper", "Trinidad Moruga Scorpion", "Red Savina Habanero"],
       correct: "Carolina Reaper",
-      image: "https://via.placeholder.com/250x250"
+      image: "assets/images/carolinaReaper.jpg"
     },
     {
       question: "Which baby animal is born without it's iconic feature?",
       choices: ["baby camel - hump", "baby elephant - trunk", "baby hedgehog - quills", "baby dolphin - dorsal fin"],
       correct: "baby camel - hump",
-      image: "https://via.placeholder.com/250x250"
+      image: "assets/images/camel.jpg"
     },
     {
-      question: "Question 9",
-      choices: ["Answer Option A", "Answer Option B", "Answer Option C", "Answer Option D"],
-      correct: "Answer Option A",
-      image: "https://via.placeholder.com/250x250"
+      question: "What famous bear was originally named 'Edward Bear'",
+      choices: ["Baloo", "Winnie the Pooh", "Smokey Bear", "Paddington Bear"],
+      correct: "Winnie the Pooh",
+      image: "assets/images/winnieThePooh.jpg"
     },
     {
-      question: "Question 10",
-      choices: ["Answer Option A", "Answer Option B", "Answer Option C", "Answer Option D"],
-      correct: "Answer Option A",
-      image: "https://via.placeholder.com/250x250"
+      question: "Which organ was thrown out by ancient Egyptians when making a mummy?",
+      choices: ["brain", "heart", "skin", "kidney"],
+      correct: "brain",
+      image: "assets/images/kingTut.jpg"
     }
   ]
 
