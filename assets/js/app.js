@@ -14,7 +14,8 @@ $(document).ready(function () {
   const hide = x => $(x).hide();
   const show = x => $(x).show();
 
-  hide($('#showResults'));
+  hide('#showResults');
+  hide('.main');
 
   /*Question & Answer Variables*/
   const questions = [
@@ -138,6 +139,7 @@ $(document).ready(function () {
 
   /*Initialize & Set Variables*/
   const setVars = function () {
+    show('.main');
     setQuestionVars(questions[questionIndex()]);
     displayText('.card-header', 'Question # ' + questionNumber)
     displayQuestion('.card-title');
