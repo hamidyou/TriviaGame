@@ -4,6 +4,7 @@ $(document).ready(function () {
   const setAttr = (element, attr, value) => $(element).attr(attr, value);
   let correct = 0;
   let incorrect = 0;
+
   const percentage = function () {
     if (questionNumber !== 1) {
       return (correct / (correct + incorrect)).toLocaleString('en-US', { style: 'percent' })
@@ -11,11 +12,13 @@ $(document).ready(function () {
       return Number('0').toLocaleString('en-US', { style: 'percent' })
     }
   };
+
   const hide = x => $(x).hide();
   const show = x => $(x).show();
 
   hide('#showResults');
   hide('.main');
+  hide('.next');
 
   /*Question & Answer Variables*/
   const questions = [
@@ -156,18 +159,19 @@ $(document).ready(function () {
     questionNumber = 1;
     shuffleArray(questionArray);
     setVars();
-    console.log('reset');
   }
 
   /*change START button to RESET*/
   const switchButton = function () {
-    setAttr('#start', 'id', 'reset');
-    displayText('#reset', 'RESET');
-  }
+    if (questionNumber <= 10) {
+      setAttr('#start', 'id', 'reset');
+      displayText('#reset', 'RESET');
+    } else {
+      setAttr('#reset', 'id', 'start');
+      displayText('#start', 'PLAY AGAIN');
+    }
 
-  /*Start the Game*/
-  $(document).on('click', '#start', setVars);
-  $(document).on('click', '#reset', reset);
+  }
 
   /*After answer Logic*/
   const showAnswerImage = function () {
@@ -177,9 +181,20 @@ $(document).ready(function () {
   }
 
   const nextQuestion = function () {
-    show('#choiceList, .card-header, .card-title');
-    hide('#showResults');
+    show('#choiceList, .card-header, .card-title, #timer');
+    hide('#showResults, .next');
     setVars();
+  }
+
+  const gameOver = function () {
+    if (questionNumber === 11) {
+      displayText('#result', 'GAME OVER');
+      hide('#timer');
+
+    } else {
+      hide('#timer');
+      show('.next');
+    }
   }
 
   /*Check Answer*/
@@ -200,7 +215,7 @@ $(document).ready(function () {
     showAnswerImage();
     displayScores();
     questionNumber++;
-    setTimeout(nextQuestion, 4000);
+    setTimeout(gameOver, 2000);
   }
 
   $(document).on('click', '#choice1, #choice2, #choice3, #choice4', function () {
@@ -257,5 +272,10 @@ $(document).ready(function () {
       return minutes + ":" + seconds;
     }
   };
+
+  /*Start the Game*/
+  $(document).on('click', '#start', setVars);
+  $(document).on('click', '#reset', reset);
+  $(document).on('click', '.next', nextQuestion);
 
 });
