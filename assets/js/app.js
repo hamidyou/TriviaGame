@@ -233,7 +233,7 @@ $(document).ready(function () {
     showAnswerImage()
     displayScores()
     console.log(questionNumber)
-    setTimeout(gameOver, 2000)
+    gameOver()
   }
 
   $(document).on('click', '#choice1, #choice2, #choice3, #choice4', function () {
